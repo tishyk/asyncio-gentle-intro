@@ -42,15 +42,13 @@ if __name__ == "__main__":
     # Prep everything
     prep_tasks = [
         asyncio.async(preheat_oven(400)),
-        asyncio.async(mix_ingredients(3))
-    ]
+        asyncio.async(mix_ingredients(3))]
     loop.run_until_complete(asyncio.wait(prep_tasks))
 
     # Bake it and make frosting
     tasks = [
         asyncio.async(bake_cake(16)),
-        asyncio.async(make_frosting(12))
-    ]
+        asyncio.async(make_frosting(12))]
     loop.run_until_complete(asyncio.wait(tasks))
 
     apply_frosting()
