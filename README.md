@@ -19,21 +19,34 @@ are completely new to asyncio (or new to asynchronous programming in general). T
 concepts will be explained with code examples which demonstrate practical 
 design patterns that you can use in your own projects.
 
+This code will use Python 3.4 but includes sections for how to port to 3.5+ and back to 2.6.
 
 ## Table of contents
 
 1. The [difference between asyncronous and syncronous programming](01_sync_vs_async_example/) - Baking a cake as an analogy for why we need asyncronous programming. *We can be mixing ingredients while our oven preheats*. Asyncio and syncronous code examples compared.
-1. Yield from
-1. Define the main players
+1. Core concepts: Defining the main players
+    - The `yield from` keyword, avoiding callbacks
     - The event loop
     - Tasks, coroutines and Futures
-    - The yield from keyword
     - Transports and Protocols
-1. Calling blocking code in another thread with `run_in_executor`
-1.  Readers and Writers
-1. Running the loop: until_complete, forever and loop.stop
-1. Exceptions
-1. Queues
-1. Subprocesses and UNIX Pipes
-1. Signals
-1. Creating and connecting to servers
+1. Guide
+    1. Calling blocking code in another thread with `run_in_executor`
+    1. Running the loop: `run_until_complete` versus `forever`, in main only
+    1. Subprocesses and UNIX Pipes
+    1. Unix Signals
+    1. open_connection for Readers and Writers
+    1. Creating servers
+    1. Handling Exceptions
+1. Portability
+    1. Coming from Other techniques like gevent, tornado, twisted, JS callbacks, etc
+    1. Porting to Python 2.6 with `Trollius`
+    1. Porting to Python 3.5 with `async` keywords
+1. Pragmatic lessons
+    - Things the API allows but are not encourages
+        - loop.stop
+        - run loop in main only
+        - multiple event loops in threads
+        - setting event loop policy
+        - use gather instead of wait unless you need a timeout
+        - queues as a last resort
+    - Things that are generally too low level for daily use
