@@ -91,14 +91,15 @@ as soon as possible. Any lengthy computations (our `preheat_oven` and `mix_ingre
 
 ```python
 loop = asyncio.get_event_loop()
-prep_tasks = [
-    asyncio.async(preheat_oven(400)),
-    asyncio.async(mix_ingredients(3))]
-loop.run_until_complete(asyncio.wait(prep_tasks))
+loop.run_until_complete(
+    asyncio.gather(
+        preheat_oven(400),
+        mix_ingredients(3)))
 ```
 
+Here we start an event loop and tell it to run until it has gathered the results of the two funtions. 
 A little more involved than just calling the functions but the result is worth the effort; we can
-now execute both tasks at the same time:
+now execute both tasks concurrently:
 
 ```
 preheat:: temp is now 200

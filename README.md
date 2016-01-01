@@ -23,23 +23,17 @@ design patterns that you can use in your own projects.
 ## Table of contents
 
 1. The [difference between asyncronous and syncronous programming](01_sync_vs_async_example/) - Baking a cake as an analogy for why we need asyncronous programming. *We can be mixing ingredients while our oven preheats*. Asyncio and syncronous code examples compared.
-
-Event Loop
-Futures, Tasks, Coroutines
-Readers and Writers
-Calling syncronous code
-    Pitfalls
-    Callbacks
-    (run_in_executor, call_soon, call_later)
-Running the loop: until_complete, forever and loop.stop
-Exceptions
-Multithreading
-Queues
-Subprocesses
-Signals
-Transports and Protocols
-    Pipes
-    Sockets
-    Streams, servers and connections
-
-Appendix: Definitions
+1. Yield from
+1. Define the main players
+    - The event loop
+    - Tasks, coroutines and Futures
+    - The yield from keyword
+    - Transports and Protocols
+1. Calling blocking code in another thread with `run_in_executor`
+1.  Readers and Writers
+1. Running the loop: until_complete, forever and loop.stop
+1. Exceptions
+1. Queues
+1. Subprocesses and UNIX Pipes
+1. Signals
+1. Creating and connecting to servers
